@@ -29,6 +29,7 @@ import { FaRegThumbsDown } from "react-icons/fa";
 import ImageSlider from "../Components/ImageSlider";
 import Footer from "../Components/Footer";
 import SideBar from "../Components/SideBar";
+import ScrollToTop from "../Components/ScrollToTop";
 
 // import { baseUrl } from "./config";
 function ProductDetail() {
@@ -112,7 +113,9 @@ function ProductDetail() {
   console.log("similarProducts", similarProducts, id);
   console.log("Single Item", item);
   console.log(item.id, "item id");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     document.querySelector("body").scrollIntoView();
     setItem(allProductsData.find((ele) => ele.id == params.id));
@@ -154,10 +157,9 @@ function ProductDetail() {
           setShowWishlist={setShowWishlist}
           showSideBar={showSideBar}
           setShowSideBar={setShowSideBar}
-          className=""
         />
         <Navbar2 />
-        <div className="w-full pl-2 lg:w-[85%] mx-auto">
+        <div className="mt-40  w-full pl-2 lg:w-[85%] mx-auto">
           <BreadCrumb title={title} />
         </div>
         {/* //***** CART SECTION ***** */}
@@ -207,7 +209,7 @@ function ProductDetail() {
         </div>
         <div className="flex flex-col lg:flex-row w-full lg:w-[85%] mt-2 mx-auto">
           {/* //***** IMAGES DIV ****** */}
-          <div className="w-full mx-auto lg:pr-5  h-fit  flex overflow-scroll lg:overflow-visible lg:grid  lg:grid-cols-2 lg:gap-3  ">
+          <div className=" w-full mx-auto lg:pr-5 mt-8 mb-4 lg:my-0 h-60 lg:h-fit  flex overflow-scroll lg:overflow-visible lg:grid  lg:grid-cols-2 lg:gap-3  ">
             {item.images?.map((ele) => {
               return (
                 <div className="hidden lg:inline-block   slider-container box-border overflow-hidden">
@@ -226,7 +228,7 @@ function ProductDetail() {
             <img
               alt="product_image"
               src={image}
-              className="visible lg:hidden  cursor-pointer mx-auto   hover:scale-[1.08]  transition-all hover:cursor-zoom-in object-cover duration-500 "
+              className="visible lg:hidden  cursor-pointer mx-auto    transition-all hover:cursor-zoom-in object-cover duration-500 "
             />
           </div>
           {/* </div> */}
@@ -648,7 +650,7 @@ function ProductDetail() {
             )} */}
 
             {/* ***** COMMENT SECTION ***** */}
-            <div className=" flex flex-col gap-10">
+            <div className="overflow-hidden w-full flex flex-col gap-10">
               <div className="flex flex-col gap-3">
                 <div>
                   <p className="flex items-start gap-1 font-bold">
@@ -933,6 +935,8 @@ function ProductDetail() {
             {/* </Slider> */}
           </div>
         </div>
+        {/* ***** SCROLL TO TOP BUTTON ***** */}
+        <ScrollToTop />
         <Footer />
       </>
     </div>

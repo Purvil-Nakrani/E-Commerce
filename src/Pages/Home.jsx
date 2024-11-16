@@ -15,6 +15,7 @@ import ImageSlider from "../Components/ImageSlider";
 import Footer from "../Components/Footer";
 import SideBar from "../Components/SideBar";
 import { FaArrowCircleUp } from "react-icons/fa";
+import ScrollToTop from "../Components/ScrollToTop";
 function Home() {
   const productsList = useSelector((state) => state.products);
   const [showCart, setShowCart] = useState(false);
@@ -28,8 +29,62 @@ function Home() {
     dots: false,
     infinite: true,
     speed: 1000,
-    slidesToShow: 1,
+    slidesToShow: 6,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1700,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1350,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1140,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 890,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+    ],
   };
   return (
     <div className={`mb-14 lg:mb-0 ${darkMode ? "text-white" : ""}`}>
@@ -102,7 +157,7 @@ function Home() {
           </div>
 
           {/* ***** IMAGES ***** */}
-          <div className="text-center mt-10 lg:mt-14  ">
+          <div className="mt-40 lg:mt-40 xl:mt-32 text-center   ">
             <img
               src="https://m.media-amazon.com/images/I/71lWydXqfDL._SR1236,1080_.jpg"
               className="md:hidden pt-1 border-t-2"
@@ -126,7 +181,7 @@ function Home() {
        gap-3 gap-y-4 p-3 "
       > */}
             <div
-              className=" flex-row flex-wrap overflow-scroll w-full   
+              className=" flex-row flex-wrap overflow-visible w-full   
         mx-auto p-5  "
             >
               {/* {productsList.map((ele, index) => (
@@ -144,10 +199,8 @@ function Home() {
           <ImageSlider />
 
           {/* ***** SCROLL TO TOP BUTTON ***** */}
+          <ScrollToTop />
 
-          <button>
-            <FaArrowCircleUp className="text-red z-[70] text-xl fixed top-32" />
-          </button>
           {/* ***** FOOTER ***** */}
           <Footer />
         </div>

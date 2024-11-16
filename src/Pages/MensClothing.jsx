@@ -15,6 +15,8 @@ import ImageSlider from "../Components/ImageSlider";
 import Footer from "../Components/Footer";
 import BreadCrumb from "../Components/BreadCrumb";
 import SideBar from "../Components/SideBar";
+import ScrollToTop from "../Components/ScrollToTop";
+
 function MensClothing() {
   const productsList = useSelector((state) => state.products);
   const [showCart, setShowCart] = useState(false);
@@ -45,7 +47,7 @@ function MensClothing() {
           className=""
         />
         <Navbar2 />
-        <div className="w-full pl-2 lg:w-[85%] mx-auto">
+        <div className="mt-40 w-full pl-2 lg:w-[85%] mx-auto">
           <BreadCrumb title="Men's Clothing" />
         </div>
         {showCart || showWishlist || showSideBar ? (
@@ -108,6 +110,8 @@ function MensClothing() {
           )}
           {/* </Slider> */}
         </div>
+        {/* ***** SCROLL TO TOP BUTTON ***** */}
+        <ScrollToTop />
         <Footer />
       </>
     </div>

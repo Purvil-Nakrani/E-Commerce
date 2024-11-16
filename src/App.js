@@ -15,7 +15,9 @@ function App() {
 
   return (
     <>
-      <div className={`min-h-lvh ${darkMode ? "bg-zinc-800" : ""}`}>
+      <div
+        className={`min-h-lvh ${darkMode ? "bg-zinc-800" : ""} scroll-smooth`}
+      >
         {/* <Home /> or <Outlet /> */}
         <Outlet
         // showCart={showCart}

@@ -16,6 +16,7 @@ import Footer from "../Components/Footer";
 import BreadCrumb from "../Components/BreadCrumb";
 import SideBar from "../Components/SideBar";
 import { FaArrowCircleUp } from "react-icons/fa";
+import ScrollToTop from "../Components/ScrollToTop";
 function Electronics() {
   const productsList = useSelector((state) => state.products);
   const [showCart, setShowCart] = useState(false);
@@ -42,7 +43,7 @@ function Electronics() {
           className=""
         />
         <Navbar2 />
-        <div className="w-full xl:pl-2 lg:w-[85%] mx-auto">
+        <div className="mt-40 w-full xl:pl-2 lg:w-[85%] mx-auto">
           <BreadCrumb title="Electronics" />
         </div>{" "}
         {showCart || showWishlist || showSideBar ? (
@@ -106,12 +107,14 @@ function Electronics() {
         </div>
         {/* ***** SCROLL TO TOP BUTTON ***** */}
         {/* {document.querySelector("body").offsetTop>1000px ? ( */}
-        <button onClick={() => document.querySelector("body").scrollIntoView()}>
+        {/* <button onClick={() => document.querySelector("body").scrollIntoView()}>
           <FaArrowCircleUp className="text-red z-[48] text-4xl opacity-40 fixed bottom-[4.5rem] right-3" />
-        </button>
+        </button> */}
         {/* ) : (
           ""
         )} */}
+        {/* ***** SCROLL TO TOP BUTTON ***** */}
+        <ScrollToTop />
         <Footer />
       </>
     </div>

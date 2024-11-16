@@ -35,10 +35,10 @@ function Navbar({
 
   return (
     <nav
-      className={`sticky top-0 z-50
+      className={`fixed top-0 z-50
           text-white ${
             darkMode ? "bg-black " : "bg-sky-600"
-          } xl:text-white items-center     xl:bg-slate-800 h-[100px] xl:h-[60px]  text-md w-full  `}
+          } xl:text-white items-center  w-full   xl:bg-slate-800 h-[100px] xl:h-[60px]  text-md w-full  `}
     >
       <div className="p-2  pr-4 flex justify-between items-center text-left ">
         {/* **** HAMBURGER ICON & LOGO ***** */}
